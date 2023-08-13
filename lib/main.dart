@@ -1,12 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:pro/constants/global_box.dart';
+import 'package:pro/module/authen/screens/login.dart';
+import 'package:pro/router.dart';
 
 void main() {
   runApp(const Sarvayon());
 }
 
-class Sarvayon extends StatelessWidget {
+class Sarvayon extends StatefulWidget {
   const Sarvayon({super.key});
+
+  @override
+  State<Sarvayon> createState() => _SarvayonState();
+}
+
+class _SarvayonState extends State<Sarvayon> {
+  bool changeButton = false;
 
   // This widget is the root of your application.
   @override
@@ -15,22 +24,45 @@ class Sarvayon extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Sarvayon',
       theme: ThemeData(
-        scaffoldBackgroundColor: Global_Box.backgroundColor,
+        scaffoldBackgroundColor: const Color.fromARGB(255, 255, 255, 255),
         // colorScheme: ColorScheme.fromSeed(
         //     seedColor: const Color.fromARGB(255, 191, 111, 207)),
         useMaterial3: true,
         appBarTheme: AppBarTheme(
           elevation: 0,
           backgroundColor: Global_Box.selectedNavBarColor,
-          iconTheme: IconThemeData(color: Colors.black),
+          iconTheme: const IconThemeData(color: Colors.black),
         ),
       ),
+      onGenerateRoute: ((settings) => generateRoute(settings)),
+      // initialRoute: '/login',
+      // home: const Authen(),
+      initialRoute: "/",
+      // routes: {
+      //   // "/": (context) => const HomePage(),
+      //   MyRoutes.Authen: (context) => const Authen(),
+      //   // MyRoutes.loginRoute: (context) => const LoginPage(),
+      // },
+
       home: Scaffold(
         appBar: AppBar(
           title: const Text('Sarvayon'),
         ),
-        body: const Center(
-          child: Text('Flutter Demo Home Page'),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Text("Welcome Click this "),
+              Builder(builder: (context) {
+                return ElevatedButton(
+                  onPressed: () {
+                    Navigator.pushNamed((context), Authen.routeName);
+                  },
+                  child: Text("Login"),
+                );
+              })
+            ],
+          ),
         ),
         drawer: const Drawer(),
       ),
