@@ -39,7 +39,7 @@ class _SarvayonState extends State<Sarvayon> {
       // home: const Authen(),
       initialRoute: "/",
       // routes: {
-      //   // "/": (context) => const HomePage(),
+      //   "/": (context) =>  AnimatedBtn(),},
       //   MyRoutes.Authen: (context) => const Authen(),
       //   // MyRoutes.loginRoute: (context) => const LoginPage(),
       // },
@@ -58,7 +58,7 @@ class _SarvayonState extends State<Sarvayon> {
                   onPressed: () {
                     Navigator.pushNamed((context), Authen.routeName);
                   },
-                  child: Text("Login"),
+                  child: const Text("Login"),
                 );
               })
             ],

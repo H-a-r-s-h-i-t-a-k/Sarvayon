@@ -1,6 +1,9 @@
 import 'dart:ui';
-import 'package:flutter/cupertino.dart';
+
+import 'package:flutter/rendering.dart';
+import 'package:pro/constants/AnimatedBtn.dart';
 import 'package:rive/rive.dart';
+
 // import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 
@@ -12,20 +15,39 @@ class Authen extends StatefulWidget {
 }
 
 class _AuthenState extends State<Authen> {
+//   late RiveAnimationController _btnAnimationController;
+//   bool _isokey = false;
+//   @override
+//   void initState() {
+//     super.initState();
+//     _btnAnimationController = OneShotAnimation(
+//       'bounce', autoplay: false,
+//       onStop: () => setState(
+//         () => _isokey = false,
+//       ),
+//       onStart: () => setState(
+//         () => _isokey = true,
+//       ),
+
+// // autoplay: false,
+//     );
+//   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
         children: [
-          const RiveAnimation.asset(
-            "asset/rive_assets/i1.riv",
-            fit: BoxFit.fill,
-          ),
+          // const RiveAnimation.asset(
+          //   "asset/rive_assets/i1.riv",
+          //   // "asset/rive_assets/button.riv",
+          //   fit: BoxFit.fill,
+          // ),
           Positioned(
             width: MediaQuery.of(context).size.width * 0.9,
             bottom: 20,
             height: 50,
-            child: Text(
+            child: const Text(
               "Wellcome to your ",
               // style: TextStyle(
               //   fontSize: 45,
@@ -43,22 +65,25 @@ class _AuthenState extends State<Authen> {
                 sigmaX: 1,
                 sigmaY: 1,
               ),
-              child: SizedBox(),
+              child: const SizedBox(
+                height: 89,
+              ),
             ),
           ),
-          SafeArea(
-            child: Padding(
-              padding: const EdgeInsets.only(
-                left: 44.7,
-                top: 310.0,
-              ),
-              child: Center(
-                child: Container(
-                  // padding: const EdgeInsets.all(50),
-                  child: const Column(
+          const SafeArea(
+            child: Stack(
+              fit: StackFit.loose,
+              children: [
+                SingleChildScrollView(
+                  scrollDirection: Axis.vertical,
+                  padding: EdgeInsets.symmetric(horizontal: 34, vertical: 334),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    // crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(
                         "Sarvayan : Health Care ",
+                        textAlign: TextAlign.center,
                         style: TextStyle(
                             fontSize: 45,
                             fontFamily: AutofillHints.birthdayYear,
@@ -70,51 +95,138 @@ class _AuthenState extends State<Authen> {
                       ),
                       Text(
                         "Health care, or healthcare, is the improvement of health via the prevention, diagnosis, treatment, amelioration or cure of disease, illness, injury",
+                        textAlign: TextAlign.center,
+                        // style: text,
                       ),
                       SizedBox(
                         height: 23,
                         width: 67,
                       ),
-                      SizedBox(
-                        height: 94,
-                        width: 670,
-                        child: Stack(
-                          children: [
-                            RiveAnimation.asset("asset/rive_assets/button.riv",
-                                fit: BoxFit.fill),
-                            Positioned.fill(
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  SizedBox(
-                                    height: 23,
-                                    width: 57,
-                                  ),
-                                  Icon(CupertinoIcons.arrow_right),
-                                  Text(
-                                    "Start",
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.w900,
-                                        fontSize: 23),
-                                  ),
-                                ],
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
                     ],
                   ),
                 ),
-              ),
-
-              // GestureDetector(
-              //   onTap: () => (_btnAnimationController.isActive=true;),
-              // ),
+              ],
             ),
           ),
-        ],
+          const Spacer(flex: 4),
+          const Animate2(),
+
+          // Padding(
+          //     padding: const EdgeInsets.only(top: 55, left: 24),
+          //     child: GestureDetector(
+          //       onTap: () => _isokey ? null : _btnAnimationController,
+          //       child: Column(
+          //         children: [
+          //           RiveAnimation.asset(
+          //             "asset/rive_assets/button.riv",
+          //             animations: const ['idle', 'curves'],
+          //             controllers: [_btnAnimationController],
+          //           ),
+          //         ],
+          //       ),
+          //     ))
+          //pading
+          // ),
+
+          //   ],
+          // ),
+          //
+          //     ),//container
+          //   ),
+          // ),//padinh
+          // ),
+          //   ],
+          // ),
+        ], //column
       ),
     );
   }
 }
+
+// class AnimatedBtn extends StatefulWidget {
+//   late RiveAnimationController _btnAnimationController;
+
+//   AnimatedBtn({
+//     Key? key,
+//     // key,
+//     required RiveAnimationController btnAnimationController,
+//   })  : _btnAnimationController = btnAnimationController,
+//         super(key: key);
+
+//   @override
+//   State<AnimatedBtn> createState() => _AnimatedBtnState();
+// }
+
+// class _AnimatedBtnState extends State<AnimatedBtn> {
+//   late RiveAnimationController _btnAnimationController;
+//   @override
+//   void initState() {
+//     super.initState();
+//     _btnAnimationController = OneShotAnimation(
+//       "active",
+//       autoplay: false,
+//     );
+//   }
+
+//   // Future<void> press() async {
+//   //   _btnAnimationController.isActive = true;
+//   //   await Future.delayed(
+//   //     const Duration(seconds: 20),
+//   //   );
+//   //   setState(() {});
+//   // }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return GestureDetector(
+//       onTap: () async {
+//         _btnAnimationController.isActive = true;
+//         await Future.delayed(
+//           const Duration(seconds: 20),
+//         );
+//         setState(() {});
+//       },
+//       // height: 64,
+//       // width: 370,
+//       child: Stack(children: [
+//         RiveAnimation.asset(
+//           "asset/rive_assets/button.riv",
+//           fit: BoxFit.contain,
+//           controllers: [_btnAnimationController],
+//           // animations: [
+//           //   Action(
+//           //     AboutDialog(
+//           //       applicationName: "hjh",
+//           //     ),
+//           //   )
+//           // ],
+//           onInit: (_) => setState(() {}),
+//         ),
+//         const Positioned.fill(
+//           top: 15,
+//           left: 34,
+//           child: Row(
+//               crossAxisAlignment: CrossAxisAlignment.center,
+//               // mainAxisAlignment: MainAxisAlignment.start,
+//               children: [
+//                 Icon(CupertinoIcons.arrow_right),
+//                 SizedBox(
+//                   // height: 40,
+//                   width: 6,
+//                 ),
+//                 Text(
+//                   "Start",
+//                   style: TextStyle(
+//                       // textBaseline: TextBaseline.alphabetic,
+//                       fontWeight: FontWeight.bold,
+//                       fontSize: 23),
+//                 ),
+//               ]),
+//         ),
+//       ]
+//           // ),
+//           // ),
+//           ),
+//     );
+//   }
+// }
