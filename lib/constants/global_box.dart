@@ -12,7 +12,7 @@ class Global_Box {
 
   static const secondaryColor = Color.fromRGBO(255, 153, 0, 1);
   static const backgroundColor = Colors.white;
-  static const Color greyBackgroundCOlor = Color(0xffebecee);
+  static const Color greyBackgroundCOlor = Color.fromARGB(255, 235, 237, 239);
   static var selectedNavBarColor = Colors.greenAccent;
   static const unselectedNavBarColor = Colors.black87;
 }
