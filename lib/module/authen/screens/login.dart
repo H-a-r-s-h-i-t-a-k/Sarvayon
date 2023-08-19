@@ -15,6 +15,7 @@ class Authen extends StatefulWidget {
 }
 
 class _AuthenState extends State<Authen> {
+  bool isfommyDialogShown = false;
 //   late RiveAnimationController _btnAnimationController;
 //   bool _isokey = false;
 //   @override
@@ -70,46 +71,59 @@ class _AuthenState extends State<Authen> {
               ),
             ),
           ),
-          const SafeArea(
-            child: Stack(
-              fit: StackFit.loose,
-              children: [
-                SingleChildScrollView(
-                  scrollDirection: Axis.vertical,
-                  padding: EdgeInsets.symmetric(horizontal: 34, vertical: 334),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    // crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Text(
-                        "Sarvayan : Health Care ",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            fontSize: 45,
-                            fontFamily: AutofillHints.birthdayYear,
-                            fontWeight: FontWeight.bold,
-                            height: 1.3),
-                      ),
-                      SizedBox(
-                        height: 14,
-                      ),
-                      Text(
-                        "Health care, or healthcare, is the improvement of health via the prevention, diagnosis, treatment, amelioration or cure of disease, illness, injury",
-                        textAlign: TextAlign.center,
-                        // style: text,
-                      ),
-                      SizedBox(
-                        height: 23,
-                        width: 67,
-                      ),
-                    ],
+          AnimatedPositioned(
+            // top:  ? -50 : 0,
+            duration: const Duration(milliseconds: 140),
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
+            child: SafeArea(
+              child: Stack(
+                fit: StackFit.loose,
+                children: [
+                  SingleChildScrollView(
+                    scrollDirection: Axis.vertical,
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 24, vertical: 334),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      // crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Sarvayan : Health Care ",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              fontSize: 45,
+                              fontFamily: AutofillHints.birthdayYear,
+                              fontWeight: FontWeight.bold,
+                              height: 1.3),
+                        ),
+                        SizedBox(
+                          height: 34,
+                        ),
+                        Text(
+                          "Health care, or healthcare, is the improvement of health via the prevention, diagnosis, treatment, amelioration or cure of disease, illness, injury",
+                          textAlign: TextAlign.center,
+                          // style: text,
+                        ),
+                        // SizedBox(
+                        //   height: 34,
+                        // ),
+                      ],
+                    ),
                   ),
-                ),
-              ],
+                  Padding(
+                    padding: EdgeInsets.only(top: 573, bottom: 140),
+                    child: InkWell(
+                      onTap: active,
+                      child: Animate2(),
+                      radius: 1.0,
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
-          const Spacer(flex: 4),
-          const Animate2(),
+          // const Spacer(flex: 4),
 
           // Padding(
           //     padding: const EdgeInsets.only(top: 55, left: 24),
@@ -140,6 +154,10 @@ class _AuthenState extends State<Authen> {
         ], //column
       ),
     );
+  }
+
+  void active() {
+    isfommyDialogShown ? isfommyDialogShown = false : isfommyDialogShown = true;
   }
 }
 
