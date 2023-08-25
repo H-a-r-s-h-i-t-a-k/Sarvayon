@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pro/constants/global_box.dart';
+import 'package:pro/module/authen/services/auth_services.dart';
 
 import '../common/custom_textfield.dart';
 import '../common/custon_button.dart';
@@ -18,16 +19,35 @@ class _LoginLogoutState extends State<LoginLogout> {
   Auth _auth = Auth.signin;
   final _signUpFormKey = GlobalKey<FormState>();
   final _signInFormKey = GlobalKey<FormState>();
+  final AuthService authService = AuthService();
 
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _nameController = TextEditingController();
+
   @override
   void dispose() {
     super.dispose();
     _nameController.dispose();
     _emailController.dispose();
     _passwordController.dispose();
+  }
+
+  void signUpUser() {
+    authService.signUpUser(
+      context: context,
+      email: _emailController.text,
+      password: _passwordController.text,
+      name: _nameController.text,
+    );
+  }
+
+  void signInUser() {
+    authService.signInUser(
+      context: context,
+      email: _emailController.text,
+      password: _passwordController.text,
+    );
   }
 
   @override
@@ -141,7 +161,12 @@ class _LoginLogoutState extends State<LoginLogout> {
                                 ),
                                 CustomBotton(
                                   text: 'Sign Up',
-                                  onTap: () {},
+                                  onTap: () {
+                                    if (_signUpFormKey.currentState!
+                                        .validate()) {
+                                      signUpUser();
+                                    }
+                                  },
                                 ),
                               ],
                             ),
@@ -231,7 +256,12 @@ class _LoginLogoutState extends State<LoginLogout> {
                                 ),
                                 CustomBotton(
                                   text: 'Sign In',
-                                  onTap: () {},
+                                  onTap: () {
+                                    if (_signInFormKey.currentState!
+                                        .validate()) {
+                                      signInUser();
+                                    }
+                                  },
                                 ),
                               ],
                             ),
