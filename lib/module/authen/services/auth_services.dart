@@ -6,8 +6,10 @@ import 'package:http/http.dart' as http;
 import 'package:pro/constants/error_handling.dart';
 import 'package:pro/constants/utils.dart';
 import 'package:pro/models/user.dart';
+import 'package:pro/providers/user_provider.dart';
 
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../../../constants/global_box.dart';
 
 class AuthService {
@@ -69,11 +71,15 @@ class AuthService {
         },
       );
       print(res.body);
+
+      // ignore: use_build_context_synchronously
       httpErrorHandle(
         response: res,
         context: context,
-        onSuccess: () {
-          SharedPreferences prefs
+        onSuccess: () async {
+          SharedPreferences prefs = await SharedPreferences.getInstance();
+          Provider.of<UserProvider>(context, listen: false).setUser(res.body);
+          await prefs.setString('x-auth-token', jsonDecode(res.body)['token']);
         },
       );
     } catch (e) {

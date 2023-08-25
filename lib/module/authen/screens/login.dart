@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/rendering.dart';
 import 'package:pro/constants/AnimatedBtn.dart';
-import 'package:rive/rive.dart';
+// import 'package:rive/rive.dart';
 
 // import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
