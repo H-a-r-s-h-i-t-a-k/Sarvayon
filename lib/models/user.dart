@@ -43,4 +43,6 @@ class User {
     );
   }
   String toJson() => json.encode(toMap());
+
+  static fromJson(User user) {}
 }
