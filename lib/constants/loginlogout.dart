@@ -6,7 +6,7 @@ import 'package:pro/module/authen/services/auth_services.dart';
 import '../common/custom_textfield.dart';
 import '../common/custon_button.dart';
 import 'AnimatedBtn.dart';
-import 'formmy.dart';
+// import 'formmy.dart';
 
 class LoginLogout extends StatefulWidget {
   const LoginLogout({super.key});
@@ -54,7 +54,7 @@ class _LoginLogoutState extends State<LoginLogout> {
   Widget build(BuildContext context) {
     return Material(
       borderOnForeground: false,
-      color: Color.fromARGB(186, 189, 183, 183),
+      color: Color.fromARGB(255, 239, 239, 239),
       child: Center(
         child: Container(
           alignment: Alignment(34, 56),
@@ -66,7 +66,7 @@ class _LoginLogoutState extends State<LoginLogout> {
           padding: const EdgeInsets.symmetric(horizontal: 36, vertical: 13),
           decoration: const BoxDecoration(
             // shape: BoxShape.rectangle,
-            color: Global_Box.greyBackgroundCOlor,
+            color: Color.fromARGB(117, 228, 121, 242),
             // backgroundBlendMode: BlendMode.darken,
             borderRadius: BorderRadius.all(
               Radius.circular(40),
@@ -99,7 +99,7 @@ class _LoginLogoutState extends State<LoginLogout> {
                       ListTile(
                         tileColor: _auth == Auth.signup
                             ? Global_Box.backgroundColor
-                            : Global_Box.greyBackgroundCOlor,
+                            : Color.fromARGB(117, 222, 163, 230),
                         title: const Text(
                           "Sign Up",
                           style: TextStyle(
@@ -194,7 +194,7 @@ class _LoginLogoutState extends State<LoginLogout> {
                       ListTile(
                         tileColor: _auth == Auth.signin
                             ? Global_Box.backgroundColor
-                            : Global_Box.greyBackgroundCOlor,
+                            : Color.fromARGB(117, 222, 163, 230),
                         title: const Text(
                           "Sign In",
                           style: TextStyle(

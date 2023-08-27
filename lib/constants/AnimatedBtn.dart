@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:pro/common/custom_textfield.dart';
-import 'package:pro/constants/formmy.dart';
+// import 'package:pro/constants/formmy.dart';
 import 'package:pro/constants/loginlogout.dart';
 
 import 'package:rive/rive.dart';
@@ -51,16 +51,30 @@ class _Animate2State extends State<Animate2> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: GestureDetector(
-        child: RiveAnimation.asset(
-          "asset/rive_assets/button.riv",
-          fit: BoxFit.fill,
-          onInit: ((artboard) {
-            StateMachineController cont = getAnimController(artboard);
-            cont.isActive = false;
-            button = cont.findInput<bool>("clickable");
-            button!.value = false;
-          }),
+        child: Stack(
+          fit: StackFit.passthrough,
+          children: [
+            SizedBox(
+              height: 23,
+            ),
+            const Text(
+              "Start",
+              textAlign: TextAlign.center,
+            ),
+            RiveAnimation.asset(
+              "asset/rive_assets/button.riv",
+              fit: BoxFit.fill,
+              useArtboardSize: true,
+              onInit: ((artboard) {
+                StateMachineController cont = getAnimController(artboard);
+                cont.isActive = false;
+                button = cont.findInput<bool>("clickable");
+                button!.value = false;
+              }),
+            ),
+          ],
         ),
+
         onTap: () async {
           button!.value ? button!.value = false : button!.value = true;
 

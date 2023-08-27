@@ -5,12 +5,13 @@ import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:pro/constants/error_handling.dart';
 import 'package:pro/constants/utils.dart';
-import 'package:pro/models/user.dart';
+// import 'package:pro/models/user.dart';
 import 'package:pro/providers/user_provider.dart';
 
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../../constants/global_box.dart';
+import '../../../home-screens/user.dart';
 
 class AuthService {
   void signUpUser({
