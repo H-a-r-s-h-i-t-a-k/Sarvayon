@@ -17,7 +17,7 @@ class AnimatedJump extends StatelessWidget {
     return InkWell(
       onTap: press,
       child: SizedBox(
-        width: 536,
+        width: 836,
         height: 166,
         child: Stack(
           children: [
@@ -30,7 +30,7 @@ class AnimatedJump extends StatelessWidget {
             Positioned.fill(
               top: 8,
               child: const Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Icon(
                     CupertinoIcons.arrow_right,
@@ -39,7 +39,8 @@ class AnimatedJump extends StatelessWidget {
                     // weight: 15.6,
                   ),
                   SizedBox(
-                    width: 66,
+                    height: 78,
+                    width: 146,
                   ),
                   Text(
                     " let's Join in !",

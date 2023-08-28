@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pro/constants/global_box.dart';
 import 'package:pro/module/authen/services/auth_services.dart';
+import 'package:rive/rive.dart';
 
 import '../common/custom_textfield.dart';
 import '../common/custon_button.dart';
@@ -66,7 +67,7 @@ class _LoginLogoutState extends State<LoginLogout> {
           padding: const EdgeInsets.symmetric(horizontal: 36, vertical: 13),
           decoration: const BoxDecoration(
             // shape: BoxShape.rectangle,
-            color: Color.fromARGB(117, 228, 121, 242),
+            color: Color.fromARGB(170, 121, 242, 230),
             // backgroundBlendMode: BlendMode.darken,
             borderRadius: BorderRadius.all(
               Radius.circular(40),
@@ -79,27 +80,27 @@ class _LoginLogoutState extends State<LoginLogout> {
               padding:
                   const EdgeInsets.only(top: 23, bottom: 0, left: 3, right: 3),
               child: Stack(
-                clipBehavior: Clip.none,
+                // clipBehavior: Clip.none,
                 children: [
                   Column(
                     children: [
-                      const SizedBox(
-                        height: 13,
+                      SizedBox(
+                        height: 74,
+                        width: 1086,
+                        child: const RiveAnimation.asset(
+                          // "asset/rive_assets/.riv",
+                          "asset/rive_assets/logo1.riv",
+                          fit: BoxFit.cover,
+                        ),
                       ),
-                      const Text(
-                        "Sarvayon",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 34,
-                            color: Color(0xC8790768)),
-                      ),
+
                       const SizedBox(
-                        height: 13,
+                        height: 33,
                       ),
                       ListTile(
                         tileColor: _auth == Auth.signup
                             ? Global_Box.backgroundColor
-                            : Color.fromARGB(117, 222, 163, 230),
+                            : Color.fromARGB(170, 121, 242, 230),
                         title: const Text(
                           "Sign Up",
                           style: TextStyle(
@@ -194,7 +195,7 @@ class _LoginLogoutState extends State<LoginLogout> {
                       ListTile(
                         tileColor: _auth == Auth.signin
                             ? Global_Box.backgroundColor
-                            : Color.fromARGB(117, 222, 163, 230),
+                            : Color.fromARGB(170, 121, 242, 230),
                         title: const Text(
                           "Sign In",
                           style: TextStyle(

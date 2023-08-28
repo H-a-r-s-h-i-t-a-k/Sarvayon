@@ -42,7 +42,7 @@ class _AuthenState extends State<Authen> {
         children: [
           const RiveAnimation.asset(
             // "asset/rive_assets/.riv",
-            "asset/rive_assets/r1.riv",
+            "asset/rive_assets/i1.riv",
             fit: BoxFit.fill,
           ),
           Positioned.fill(
@@ -73,6 +73,11 @@ class _AuthenState extends State<Authen> {
             // ),
             left: 10,
           ),
+          // const RiveAnimation.asset(
+          //   // "asset/rive_assets/.riv",
+          //   "asset/rive_assets/logo.riv",
+          //   // fit: BoxFit.fill,
+          // ),
           AnimatedPositioned(
             top: isloginLogout ? -40 : 0,
             duration: Duration(milliseconds: 250),
@@ -80,46 +85,35 @@ class _AuthenState extends State<Authen> {
             width: MediaQuery.of(context).size.width,
             child: const SafeArea(
               child: Padding(
-                padding: EdgeInsets.only(left: 23, right: 89, top: 314),
+                padding: EdgeInsets.only(left: 23, right: 89, top: 434),
                 child: Column(
                   // crossAxisAlignment: CrossAxisAlignment.end,
                   // mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     SizedBox(
-                      height: 496,
+                      height: 296,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
                           Text(
-                            "Sarvayon  Health Care ",
-                            textAlign: TextAlign.justify,
-                            style: TextStyle(
-                                fontSize: 45,
-                                fontFamily: AutofillHints.birthdayYear,
-                                fontWeight: FontWeight.bold,
-                                height: 1.3),
-                          ),
-                          SizedBox(
-                            height: 34,
-                          ),
-                          Text(
                             "Health care, or healthcare, is the improvement of health via the prevention,",
                             textAlign: TextAlign.justify,
                             style: TextStyle(
+                              color: Colors.white,
                               // fontWeight: FontWeight.bold,
-                              color: Color.fromRGBO(9, 38, 38, 0.788),
+                              // color: Color.fromRGBO(9, 38, 38, 0.788),
                             ),
                           ),
                           SizedBox(
-                            height: 194,
+                            height: 179,
                           ),
                           Text(
                             "Health care, or healthcare, is the improvement of health via the prevention,",
                             textAlign: TextAlign.justify,
                             style: TextStyle(
-                              // fontWeight: FontWeight.bold,
-                              color: Color.fromRGBO(9, 38, 38, 0.788),
+                              // fontWeight: FontWeight.bold, color: Colors.white,
+                              color: Colors.white,
                             ),
                           ),
                         ],
@@ -131,16 +125,16 @@ class _AuthenState extends State<Authen> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 561, left: 13, right: 73),
+            padding: const EdgeInsets.only(top: 561, left: 13, right: 23),
             child: AnimatedJump(
                 btnAnimationController: _btnAnimationController,
                 press: () async {
                   _btnAnimationController.isActive = true;
 
-                  setState(() {});
                   isloginLogout = true;
+                  setState(() {});
                   await Future.delayed(
-                    const Duration(milliseconds: 1200),
+                    const Duration(milliseconds: 1100),
                   );
 
                   Navigator.of(context).push(_createRoute());
@@ -148,7 +142,7 @@ class _AuthenState extends State<Authen> {
                   isloginLogout = false;
                   _btnAnimationController.isActive = false;
                   await Future.delayed(
-                    const Duration(milliseconds: 1200),
+                    const Duration(milliseconds: 1600),
                   );
                 }),
           ),
