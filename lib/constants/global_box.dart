@@ -3,13 +3,19 @@ import 'package:flutter/material.dart';
 String uri = "http://192.168.0.175:3000";
 
 class Global_Box {
-  //colors
+//   //colors
+
   static const appBarGradient = LinearGradient(
     colors: [
-      Color.fromRGBO(68, 186, 129, 1),
-      Color.fromARGB(255, 125, 221, 216),
+      Color.fromARGB(220, 153, 17, 199),
+      Color.fromARGB(220, 200, 80, 240),
+      Color.fromARGB(220, 82, 7, 107),
     ],
-    stops: [0.5, 1.0],
+    stops: [
+      0.15,
+      0.65,
+      1.0,
+    ],
   );
 
   static const secondaryColor = Color.fromRGBO(255, 153, 0, 1);
@@ -20,10 +26,11 @@ class Global_Box {
 }
 
 // class GlobalVariables {
-//   // COLORS
+  // COLORS
+ 
 //   static const appBarGradient = LinearGradient(
 //     colors: [
-//       Color.fromARGB(255, 29, 201, 192),
+//       Color.fromRGBO(68, 186, 129, 1),
 //       Color.fromARGB(255, 125, 221, 216),
 //     ],
 //     stops: [0.5, 1.0],
@@ -67,3 +74,4 @@ class Global_Box {
 //     },
 //   ];
 // }
+// 

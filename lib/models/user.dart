@@ -44,5 +44,5 @@ class User {
   }
   String toJson() => json.encode(toMap());
 
-  static fromJson(User user) {}
+  factory User.fromJson(String source) => User.fromMap(jsonDecode(source));
 }

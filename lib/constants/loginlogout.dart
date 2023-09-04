@@ -134,6 +134,7 @@ class _LoginLogoutState extends State<LoginLogout> {
                                     Icons.person,
                                     color: Color.fromARGB(255, 175, 7, 149),
                                   ),
+                                  obscureText: false,
                                 ),
                                 const SizedBox(
                                   height: 13,
@@ -145,6 +146,7 @@ class _LoginLogoutState extends State<LoginLogout> {
                                     Icons.email,
                                     color: Color.fromARGB(255, 175, 7, 149),
                                   ),
+                                  obscureText: false,
                                 ),
                                 const SizedBox(
                                   height: 13,
@@ -156,6 +158,7 @@ class _LoginLogoutState extends State<LoginLogout> {
                                     Icons.password,
                                     color: Color.fromARGB(255, 175, 7, 149),
                                   ),
+                                  obscureText: true,
                                 ),
                                 const SizedBox(
                                   height: 23,
@@ -240,6 +243,7 @@ class _LoginLogoutState extends State<LoginLogout> {
                                     Icons.email,
                                     color: Color.fromARGB(255, 175, 7, 149),
                                   ),
+                                  obscureText: false,
                                 ),
                                 const SizedBox(
                                   height: 13,
@@ -251,6 +255,7 @@ class _LoginLogoutState extends State<LoginLogout> {
                                     Icons.password,
                                     color: Color.fromARGB(255, 175, 7, 149),
                                   ),
+                                  obscureText: true,
                                 ),
                                 const SizedBox(
                                   height: 23,

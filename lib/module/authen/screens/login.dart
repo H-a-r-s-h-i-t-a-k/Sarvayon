@@ -9,6 +9,7 @@ import 'package:pro/constants/AnimatedBtn.dart';
 
 // import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
+import 'package:pro/module/authen/services/auth_services.dart';
 import 'package:rive/rive.dart';
 
 import '../../../constants/Anim1button.dart';
@@ -28,10 +29,10 @@ class _AuthenState extends State<Authen> {
   @override
   void initState() {
     _btnAnimationController = OneShotAnimation(
-      "active", autoplay: false,
-
-// autoplay: false,
+      "active",
+      autoplay: false,
     );
+
     super.initState();
   }
 
@@ -73,11 +74,12 @@ class _AuthenState extends State<Authen> {
             // ),
             left: 10,
           ),
-          // const RiveAnimation.asset(
-          //   // "asset/rive_assets/.riv",
-          //   "asset/rive_assets/logo.riv",
-          //   // fit: BoxFit.fill,
-          // ),
+          const RiveAnimation.asset(
+            // "asset/rive_assets/.riv",
+            "asset/rive_assets/logo1.riv",
+
+            // fit: BoxFit.fill,
+          ),
           AnimatedPositioned(
             top: isloginLogout ? -40 : 0,
             duration: Duration(milliseconds: 250),
@@ -150,10 +152,6 @@ class _AuthenState extends State<Authen> {
       ),
     );
   }
-
-//   void active() {
-//     isfommyDialogShown ? isfommyDialogShown = false : isfommyDialogShown = true;
-//   }
 }
 
 Route<Object?> _createRoute() {
@@ -173,59 +171,3 @@ Route<Object?> _createRoute() {
     },
   );
 }
-
-// class AnimatedJump extends StatelessWidget {
-//   const AnimatedJump({
-//     super.key,
-//     required RiveAnimationController btnAnimationController,
-//     required this.press,
-//   }) : _btnAnimationController = btnAnimationController;
-
-//   final RiveAnimationController _btnAnimationController;
-//   final VoidCallback press;
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return GestureDetector(
-//       onTap: press,
-//       child: SizedBox(
-//         width: 536,
-//         height: 166,
-//         child: Stack(
-//           children: [
-//             RiveAnimation.asset(
-//               // "asset/rive_assets/.riv",
-//               "asset/rive_assets/jump.riv",
-//               controllers: [_btnAnimationController],
-//               // fit: BoxFit.,
-//             ),
-//             Positioned.fill(
-//               top: 8,
-//               child: Row(
-//                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                 children: [
-//                   Icon(
-//                     CupertinoIcons.arrow_right,
-//                     color: Colors.white,
-//                     size: 23,
-//                     // weight: 15.6,
-//                   ),
-//                   SizedBox(
-//                     width: 9,
-//                   ),
-//                   Text(
-//                     " let's Join in !",
-//                     style: TextStyle(
-//                         fontSize: 23,
-//                         color: Colors.white,
-//                         fontWeight: FontWeight.w900),
-//                   ),
-//                 ],
-//               ),
-//             )
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }

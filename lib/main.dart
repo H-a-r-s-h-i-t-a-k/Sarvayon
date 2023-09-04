@@ -1,10 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:pro/common/bottom_bar.dart';
 import 'package:pro/constants/global_box.dart';
 import 'package:pro/module/authen/screens/login.dart';
+import 'package:pro/module/authen/services/auth_services.dart';
+import 'package:pro/module/home-screens/home.dart';
+import 'package:pro/providers/user_provider.dart';
 import 'package:pro/router.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const Sarvayon());
+  runApp(MultiProvider(providers: [
+    ChangeNotifierProvider(
+      create: (context) => UserProvider(),
+    ),
+  ], child: const Sarvayon()));
 }
 
 class Sarvayon extends StatefulWidget {
@@ -15,7 +24,15 @@ class Sarvayon extends StatefulWidget {
 }
 
 class _SarvayonState extends State<Sarvayon> {
-  bool changeButton = false;
+  final AuthService authService = AuthService();
+
+  @override
+  void initState() {
+    super.initState();
+    authService.getUserData(context);
+  }
+
+  // bool changeButton = false;
 
   // This widget is the root of your application.
   @override
@@ -35,37 +52,41 @@ class _SarvayonState extends State<Sarvayon> {
         ),
       ),
       onGenerateRoute: ((settings) => generateRoute(settings)),
-      // initialRoute: '/login',
-      // home: const Authen(),
-      initialRoute: "/",
-      // routes: {
-      //   "/": (context) =>  AnimatedBtn(),},
-      //   MyRoutes.Authen: (context) => const Authen(),
-      //   // MyRoutes.loginRoute: (context) => const LoginPage(),
-      // },
-
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Sarvayon'),
-        ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Text("Welcome Click this "),
-              Builder(builder: (context) {
-                return ElevatedButton(
-                  onPressed: () {
-                    Navigator.pushNamed((context), Authen.routeName);
-                  },
-                  child: const Text("Login"),
-                );
-              })
-            ],
-          ),
-        ),
-        drawer: const Drawer(),
-      ),
+      initialRoute: '/login',
+      home: Provider.of<UserProvider>(context).user.token.isNotEmpty
+          ? const BottomBar()
+          : const Authen(),
+      // home: const BottomBar(),
     );
   }
 }
+
+
+
+      // initialRoute: "/",
+      
+//       home: Scaffold(
+//         appBar: AppBar(
+//           title: const Text('Sarvayon'),
+//         ),
+//         body: Center(
+//           child: Column(
+//             mainAxisAlignment: MainAxisAlignment.center,
+//             children: [
+//               const Text("Welcome Click this "),
+//               Builder(builder: (context) {
+//                 return ElevatedButton(
+//                   onPressed: () {
+//                     Navigator.pushNamed((context), Authen.routeName);
+//                   },
+//                   child: const Text("Login"),
+//                 );
+//               })
+//             ],
+//           ),
+//         ),
+//         drawer: const Drawer(),
+//       ),
+//     );
+//   }
+// }

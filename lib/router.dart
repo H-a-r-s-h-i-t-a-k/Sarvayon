@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:pro/common/bottom_bar.dart';
 import 'package:pro/module/authen/screens/login.dart';
+import 'package:pro/module/home-screens/home.dart';
 
 // class MyRoutes {
 //   static String Authen = "/Authen";
@@ -16,12 +18,20 @@ import 'package:pro/module/authen/screens/login.dart';
 Route<dynamic> generateRoute(RouteSettings routeSettings) {
   switch (routeSettings.name) {
     case Authen.routeName:
-      // case '/lo:
       return MaterialPageRoute(
         settings: routeSettings,
         builder: (context) => const Authen(),
       );
-
+    case HomeScreen.routeName:
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (context) => const HomeScreen(),
+      );
+    case BottomBar.routeName:
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (context) => const BottomBar(),
+      );
     default:
       return MaterialPageRoute(
         settings: routeSettings,

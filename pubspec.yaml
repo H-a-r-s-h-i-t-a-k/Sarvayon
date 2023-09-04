@@ -46,6 +46,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -70,8 +71,9 @@ flutter:
     - asset/avaters/
     - asset/doc/
     - asset/rive_assets/
+    - asset/rive_assets/icons.riv
     - asset/backgrounds/
-    - asset/icons/
+    # - asset/icons/s
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

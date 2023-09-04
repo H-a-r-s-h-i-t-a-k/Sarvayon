@@ -4,17 +4,20 @@ import 'package:flutter/material.dart';
 class CustomtextFeild extends StatelessWidget {
   final TextEditingController controller;
   final Icon customicon;
+  final bool obscureText;
   final String hintText;
   const CustomtextFeild({
     super.key,
     required this.controller,
     required this.customicon,
     required this.hintText,
+    required this.obscureText,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      obscureText: obscureText,
       controller: controller,
       decoration: InputDecoration(
         hintText: hintText,
