@@ -7,13 +7,13 @@ class Global_Box {
 
   static const appBarGradient = LinearGradient(
     colors: [
-      Color.fromARGB(220, 153, 17, 199),
-      Color.fromARGB(220, 200, 80, 240),
-      Color.fromARGB(220, 82, 7, 107),
+      Color.fromARGB(255, 91, 115, 235),
+      // Color.fromARGB(220, 198, 170, 208),
+      Color.fromARGB(255, 176, 86, 255),
     ],
     stops: [
       0.15,
-      0.65,
+      // 0.65,
       1.0,
     ],
   );

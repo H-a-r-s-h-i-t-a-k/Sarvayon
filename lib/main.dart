@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pro/common/bottom_bar.dart';
 import 'package:pro/constants/global_box.dart';
+import 'package:pro/module/account/screens/account_screen.dart';
 import 'package:pro/module/authen/screens/login.dart';
 import 'package:pro/module/authen/services/auth_services.dart';
 import 'package:pro/module/home-screens/home.dart';
@@ -51,12 +52,13 @@ class _SarvayonState extends State<Sarvayon> {
           iconTheme: const IconThemeData(color: Colors.black),
         ),
       ),
+
       onGenerateRoute: ((settings) => generateRoute(settings)),
-      initialRoute: '/login',
-      home: Provider.of<UserProvider>(context).user.token.isNotEmpty
-          ? const BottomBar()
-          : const Authen(),
-      // home: const BottomBar(),
+      // initialRoute: '/login',
+      // home: Provider.of<UserProvider>(context).user.token.isNotEmpty
+      //     ? const BottomBar()
+      //     : const Authen(),
+      home: const BottomBar(),
     );
   }
 }
