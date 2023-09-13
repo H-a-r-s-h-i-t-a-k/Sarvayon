@@ -44,9 +44,13 @@ class _AccountScreenState extends State<AccountScreen> {
                   children: [
                     Padding(
                       padding: EdgeInsets.only(right: 15),
-                      child: Icon(
-                        Icons.notifications_none_outlined,
-                        color: Colors.white,
+                      child: Badge(
+                        backgroundColor: Color.fromARGB(214, 10, 0, 10),
+                        label: Text("4"),
+                        child: Icon(
+                          Icons.notifications_none_outlined,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
                     Padding(

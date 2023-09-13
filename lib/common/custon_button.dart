@@ -12,10 +12,11 @@ class CustomBotton extends StatelessWidget {
     return ElevatedButton.icon(
       onPressed: onTap,
       style: ElevatedButton.styleFrom(
-        // alignment: Alignment(23, 43),
-        // padding: EdgeInsets.symmetric(horizontal: 1, vertical: 9),
+        shadowColor: Color.fromARGB(255, 0, 0, 0),
+        elevation: 14,
         foregroundColor: Color.fromARGB(255, 23, 2, 2),
-        backgroundColor: Color.fromARGB(201, 175, 7, 150),
+        backgroundColor: Color.fromARGB(243, 240, 64, 213),
+        surfaceTintColor: Color.fromARGB(255, 23, 2, 2),
         minimumSize: Size(double.infinity, 50),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(19)),

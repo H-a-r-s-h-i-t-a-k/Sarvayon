@@ -17,6 +17,8 @@ class CustomtextFeild extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      textInputAction: TextInputAction.next,
+      enableInteractiveSelection: true,
       obscureText: obscureText,
       controller: controller,
       decoration: InputDecoration(

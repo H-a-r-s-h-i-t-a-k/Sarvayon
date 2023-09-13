@@ -25,7 +25,7 @@ class _LoginLogoutState extends State<LoginLogout> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _nameController = TextEditingController();
-
+  final TextEditingController _typeController = TextEditingController();
   @override
   void dispose() {
     super.dispose();
@@ -38,6 +38,7 @@ class _LoginLogoutState extends State<LoginLogout> {
     authService.signUpUser(
       context: context,
       email: _emailController.text,
+      type: _typeController.text,
       password: _passwordController.text,
       name: _nameController.text,
     );
@@ -47,290 +48,254 @@ class _LoginLogoutState extends State<LoginLogout> {
     authService.signInUser(
       context: context,
       email: _emailController.text,
+      type: _typeController.text,
       password: _passwordController.text,
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      borderOnForeground: false,
-      color: Color.fromARGB(255, 239, 239, 239),
-      child: Center(
-        child: Container(
-          alignment: Alignment(34, 56),
-          height: 620,
-          margin: const EdgeInsets.only(
-            top: 4,
-            bottom: 1,
-          ),
-          padding: const EdgeInsets.symmetric(horizontal: 36, vertical: 13),
-          decoration: const BoxDecoration(
-            // shape: BoxShape.rectangle,
-            color: Color.fromARGB(170, 121, 242, 230),
-            // backgroundBlendMode: BlendMode.darken,
-            borderRadius: BorderRadius.all(
-              Radius.circular(40),
-            ),
-          ),
-          child: Scaffold(
-            backgroundColor: const Color.fromARGB(0, 235, 92, 204),
-            body: SingleChildScrollView(
-              scrollDirection: Axis.vertical,
-              padding:
-                  const EdgeInsets.only(top: 23, bottom: 0, left: 3, right: 3),
-              child: Stack(
-                // clipBehavior: Clip.none,
-                children: [
-                  Column(
-                    children: [
-                      SizedBox(
-                        height: 74,
-                        width: 1086,
-                        child: const RiveAnimation.asset(
-                          // "asset/rive_assets/.riv",
-                          "asset/rive_assets/logo1.riv",
-                          fit: BoxFit.cover,
-                        ),
-                      ),
+    return Scaffold(
+      extendBodyBehindAppBar: true,
+      resizeToAvoidBottomInset: true,
+      backgroundColor: Color.fromARGB(255, 216, 252, 248),
+      body: Padding(
+        padding: const EdgeInsets.all(30.0),
+        child: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              SizedBox(
+                height: 74,
+                width: 1086,
+                child: const RiveAnimation.asset(
+                  // "asset/rive_assets/.riv",
+                  "asset/rive_assets/logo1.riv",
+                  fit: BoxFit.cover,
+                ),
+              ),
 
-                      const SizedBox(
-                        height: 33,
-                      ),
-                      ListTile(
-                        tileColor: _auth == Auth.signup
-                            ? Global_Box.backgroundColor
-                            : Color.fromARGB(170, 121, 242, 230),
-                        title: const Text(
-                          "Sign Up",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 24,
-                          ),
-                        ),
-                        leading: Radio(
-                          activeColor: const Color.fromARGB(255, 175, 7, 149),
-                          value: Auth.signup,
-                          groupValue: _auth,
-                          onChanged: (Auth? val) async {
-                            setState(() {
-                              _auth = val!;
-                            });
-                          },
-                        ),
-                      ),
-                      if (_auth == Auth.signup)
-                        Container(
-                          padding: const EdgeInsets.all(8),
-                          color: Global_Box.backgroundColor,
-                          child: Form(
-                            key: _signUpFormKey,
-                            child: Column(
-                              children: [
-                                CustomtextFeild(
-                                  hintText: "Name ",
-                                  controller: _nameController,
-                                  customicon: const Icon(
-                                    Icons.person,
-                                    color: Color.fromARGB(255, 175, 7, 149),
-                                  ),
-                                  obscureText: false,
-                                ),
-                                const SizedBox(
-                                  height: 13,
-                                ),
-                                CustomtextFeild(
-                                  hintText: "Email ",
-                                  controller: _emailController,
-                                  customicon: const Icon(
-                                    Icons.email,
-                                    color: Color.fromARGB(255, 175, 7, 149),
-                                  ),
-                                  obscureText: false,
-                                ),
-                                const SizedBox(
-                                  height: 13,
-                                ),
-                                CustomtextFeild(
-                                  hintText: "Password ",
-                                  controller: _passwordController,
-                                  customicon: const Icon(
-                                    Icons.password,
-                                    color: Color.fromARGB(255, 175, 7, 149),
-                                  ),
-                                  obscureText: true,
-                                ),
-                                const SizedBox(
-                                  height: 23,
-                                ),
-                                CustomBotton(
-                                  text: 'Sign Up',
-                                  onTap: () {
-                                    if (_signUpFormKey.currentState!
-                                        .validate()) {
-                                      signUpUser();
-                                    }
-                                  },
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      const Row(
-                        children: [
-                          Expanded(
-                            child: Divider(),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 16, vertical: 12),
-                            child: Text(
-                              "OR",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(color: Colors.black38),
-                            ),
-                          ),
-                          Expanded(
-                            child: Divider(),
-                          ),
-                        ],
-                      ),
-                      ListTile(
-                        tileColor: _auth == Auth.signin
-                            ? Global_Box.backgroundColor
-                            : Color.fromARGB(170, 121, 242, 230),
-                        title: const Text(
-                          "Sign In",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 24,
-                          ),
-                        ),
-                        leading: Radio(
-                          activeColor: const Color.fromARGB(255, 175, 7, 149),
-                          value: Auth.signin,
-                          groupValue: _auth,
-                          onChanged: (Auth? val) async {
-                            setState(() {
-                              _auth = val!;
-                            });
-                          },
-                        ),
-                      ),
-                      if (_auth == Auth.signin)
-                        Container(
-                          padding: const EdgeInsets.all(8),
-                          color: Global_Box.backgroundColor,
-                          child: Form(
-                            key: _signInFormKey,
-                            child: Column(
-                              children: [
-                                // CustomtextFeild(
-                                //   hintText: "Name ",
-                                //   controller: _nameController,
-                                //   customicon: const Icon(
-                                //     Icons.person,
-                                //     color: Color.fromARGB(255, 175, 7, 149),
-                                //   ),
-                                // ),
-                                const SizedBox(
-                                  height: 13,
-                                ),
-                                CustomtextFeild(
-                                  hintText: "Email ",
-                                  controller: _emailController,
-                                  customicon: const Icon(
-                                    Icons.email,
-                                    color: Color.fromARGB(255, 175, 7, 149),
-                                  ),
-                                  obscureText: false,
-                                ),
-                                const SizedBox(
-                                  height: 13,
-                                ),
-                                CustomtextFeild(
-                                  hintText: "Password ",
-                                  controller: _passwordController,
-                                  customicon: const Icon(
-                                    Icons.password,
-                                    color: Color.fromARGB(255, 175, 7, 149),
-                                  ),
-                                  obscureText: true,
-                                ),
-                                const SizedBox(
-                                  height: 23,
-                                ),
-                                CustomBotton(
-                                  text: 'Sign In',
-                                  onTap: () {
-                                    if (_signInFormKey.currentState!
-                                        .validate()) {
-                                      signInUser();
-                                    }
-                                  },
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      //     const Text(
-                      //       "Sign In ",
-                      //       style: TextStyle(
-                      //         fontSize: 54,
-                      //       ),
-                      //     ),
-                      //     const Padding(
-                      //       padding: EdgeInsets.symmetric(vertical: 16),
-                      //       child: Text(
-                      //         "A health insurance policy  It has long-term benefits thatyuooo make taking a health insurance policy a definite goal in your annual financial plan.",
-                      //         // textAlign: TextAlign.center
-                      //       ),
-                      //     ),
-                      //     const Formmy(),
-                      //     const Row(
-                      //       children: [
-                      //         Expanded(
-                      //           child: Divider(),
-                      //         ),
-                      //         Padding(
-                      //           padding: EdgeInsets.symmetric(
-                      //               horizontal: 16, vertical: 12),
-                      //           child: Text(
-                      //             "OR",
-                      //             textAlign: TextAlign.center,
-                      //             style: TextStyle(color: Colors.black38),
-                      //           ),
-                      //         ),
-                      //         Expanded(
-                      //           child: Divider(),
-                      //         ),
-                      //       ],
-                      //     ),
-                      //     const Padding(
-                      //       padding:
-                      //           EdgeInsets.symmetric(vertical: 12, horizontal: 16),
-                      //       child: Text("Sign up  with Email, Microsoft, Google"),
-                      //     ),
-                      //     const bottomdata(),
-                    ],
+              const SizedBox(
+                height: 33,
+              ),
+              ListTile(
+                tileColor: _auth == Auth.signup
+                    ? Global_Box.backgroundColor
+                    : Color.fromARGB(255, 216, 252, 248),
+                title: const Text(
+                  "Sign Up",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 24,
                   ),
-                  const Positioned(
-                    // top: 0,
-                    left: 0,
-                    right: 0,
-                    bottom: -68,
-                    child: CircleAvatar(
-                      backgroundColor: Color.fromARGB(192, 207, 109, 176),
-                      radius: 16,
-                      child: Icon(
-                        Icons.close,
-                        color: Color.fromARGB(255, 12, 12, 12),
-                      ),
+                ),
+                leading: Radio(
+                  activeColor: const Color.fromARGB(255, 175, 7, 149),
+                  value: Auth.signup,
+                  groupValue: _auth,
+                  autofocus: true,
+                  onChanged: (Auth? val) async {
+                    setState(() {
+                      _auth = val!;
+                    });
+                  },
+                ),
+              ),
+              if (_auth == Auth.signup)
+                Container(
+                  // decoration: BoxDecoration(
+                  //   border: Border.all(width: 1),
+                  // ),
+                  color: Global_Box.backgroundColor,
+                  padding: const EdgeInsets.all(8),
+                  child: Form(
+                    key: _signUpFormKey,
+                    child: Column(
+                      children: [
+                        CustomtextFeild(
+                          hintText: "Name ",
+                          controller: _nameController,
+                          customicon: const Icon(
+                            Icons.person,
+                            color: Color.fromARGB(255, 175, 7, 149),
+                          ),
+                          obscureText: false,
+                        ),
+                        const SizedBox(
+                          height: 13,
+                        ),
+                        CustomtextFeild(
+                          hintText: "Email ",
+                          controller: _emailController,
+                          customicon: const Icon(
+                            Icons.email,
+                            color: Color.fromARGB(255, 175, 7, 149),
+                          ),
+                          obscureText: false,
+                        ),
+                        const SizedBox(
+                          height: 13,
+                        ),
+                        CustomtextFeild(
+                          hintText: "Password ",
+                          controller: _passwordController,
+                          customicon: const Icon(
+                            Icons.password,
+                            color: Color.fromARGB(255, 175, 7, 149),
+                          ),
+                          obscureText: true,
+                        ),
+                        const SizedBox(
+                          height: 23,
+                        ),
+                        CustomBotton(
+                          text: 'Sign Up',
+                          onTap: () {
+                            if (_signUpFormKey.currentState!.validate()) {
+                              signUpUser();
+                            }
+                          },
+                        ),
+                      ],
                     ),
+                  ),
+                ),
+              const Row(
+                children: [
+                  Expanded(
+                    child: Divider(),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                    child: Text(
+                      "OR",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(color: Colors.black38),
+                    ),
+                  ),
+                  Expanded(
+                    child: Divider(),
                   ),
                 ],
               ),
-            ),
+              ListTile(
+                tileColor: _auth == Auth.signin
+                    ? Global_Box.backgroundColor
+                    : Color.fromARGB(255, 216, 252, 248),
+                title: const Text(
+                  "Sign In",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 24,
+                  ),
+                ),
+                leading: Radio(
+                  activeColor: const Color.fromARGB(255, 175, 7, 149),
+                  value: Auth.signin,
+                  groupValue: _auth,
+                  onChanged: (Auth? val) async {
+                    setState(() {
+                      _auth = val!;
+                    });
+                  },
+                ),
+              ),
+              if (_auth == Auth.signin)
+                Container(
+                  padding: const EdgeInsets.all(8),
+                  color: Global_Box.backgroundColor,
+                  child: Form(
+                    key: _signInFormKey,
+                    child: Column(
+                      children: [
+                        // CustomtextFeild(
+                        //   hintText: "Name ",
+                        //   controller: _nameController,
+                        //   customicon: const Icon(
+                        //     Icons.person,
+                        //     color: Color.fromARGB(255, 175, 7, 149),
+                        //   ),
+                        // ),
+                        const SizedBox(
+                          height: 13,
+                        ),
+                        CustomtextFeild(
+                          hintText: "Email ",
+                          controller: _emailController,
+                          customicon: const Icon(
+                            Icons.email,
+                            color: Color.fromARGB(255, 175, 7, 149),
+                          ),
+                          obscureText: false,
+                        ),
+                        const SizedBox(
+                          height: 13,
+                        ),
+                        CustomtextFeild(
+                          hintText: "Password ",
+                          controller: _passwordController,
+                          customicon: const Icon(
+                            Icons.password,
+                            color: Color.fromARGB(255, 175, 7, 149),
+                          ),
+                          obscureText: true,
+                        ),
+                        const SizedBox(
+                          height: 23,
+                        ),
+                        CustomBotton(
+                          text: 'Sign In',
+                          onTap: () {
+                            if (_signInFormKey.currentState!.validate()) {
+                              signInUser();
+                            }
+                          },
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              //     const Text(
+              //       "Sign In ",
+              //       style: TextStyle(
+              //         fontSize: 54,
+              //       ),
+              //     ),
+              //     const Padding(
+              //       padding: EdgeInsets.symmetric(vertical: 16),
+              //       child: Text(
+              //         "A health insurance policy  It has long-term benefits thatyuooo make taking a health insurance policy a definite goal in your annual financial plan.",
+              //         // textAlign: TextAlign.center
+              //       ),
+              //     ),
+              //     const Formmy(),
+              //     const Row(
+              //       children: [
+              //         Expanded(
+              //           child: Divider(),
+              //         ),
+              //         Padding(
+              //           padding: EdgeInsets.symmetric(
+              //               horizontal: 16, vertical: 12),
+              //           child: Text(
+              //             "OR",
+              //             textAlign: TextAlign.center,
+              //             style: TextStyle(color: Colors.black38),
+              //           ),
+              //         ),
+              //         Expanded(
+              //           child: Divider(),
+              //         ),
+              //       ],
+              //     ),
+              //     const Padding(
+              //       padding:
+              //           EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+              //       child: Text("Sign up  with Email, Microsoft, Google"),
+              //     ),
+              //     const bottomdata(),
+            ],
           ),
         ),
       ),

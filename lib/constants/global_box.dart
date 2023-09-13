@@ -23,7 +23,49 @@ class Global_Box {
   static const Color greyBackgroundCOlor = Color.fromARGB(255, 235, 237, 239);
   static var selectedNavBarColor = Colors.greenAccent;
   static const unselectedNavBarColor = Colors.black87;
+
+//CarouselImage
+  static const List<String> carouselImages = [
+    'asset/carousel/gym_slide.png',
+    'asset/carousel/lab_slide.png',
+    'asset/carousel/medicine_slide.png',
+    'asset/carousel/mental_h_slide.png',
+    'asset/carousel/yoga_slide.png',
+  ];
+
+  static const List<Map<String, String>> categoryImages = [
+    {
+      'title': 'Mental',
+      'image': 'asset/icon/ment_icon.png',
+    },
+    {
+      'title': 'Gym Trainer',
+      'image': 'asset/icon/gym_icon.png',
+    },
+    {
+      'title': 'Medicine',
+      'image': 'asset/icon/med_icon.png',
+    },
+    {
+      'title': 'Lab Tests ',
+      'image': 'asset/icon/lab_icon.png',
+    },
+    {
+      'title': 'Yoga',
+      'image': 'asset/icon/yoga_icon.png',
+    },
+    {
+      'title': 'Health Care',
+      'image': 'asset/icon/food.png',
+    },
+    {
+      'title': 'Skin Care',
+      'image': 'asset/icon/health_icon.png',
+    },
+  ];
 }
+
+
 
 // class GlobalVariables {
   // COLORS
@@ -42,14 +84,14 @@ class Global_Box {
 //   static var selectedNavBarColor = Colors.greenAccent;
 //   static const unselectedNavBarColor = Colors.black87;
 
-//   // STATIC IMAGES
-//   static const List<String> carouselImages = [
-//     'https://images-eu.ssl-images-amazon.com/images/G/31/img21/Wireless/WLA/TS/D37847648_Accessories_savingdays_Jan22_Cat_PC_1500.jpg',
-//     'https://images-eu.ssl-images-amazon.com/images/G/31/img2021/Vday/bwl/English.jpg',
-//     'https://images-eu.ssl-images-amazon.com/images/G/31/img22/Wireless/AdvantagePrime/BAU/14thJan/D37196025_IN_WL_AdvantageJustforPrime_Jan_Mob_ingress-banner_1242x450.jpg',
-//     'https://images-na.ssl-images-amazon.com/images/G/31/Symbol/2020/00NEW/1242_450Banners/PL31_copy._CB432483346_.jpg',
-//     'https://images-na.ssl-images-amazon.com/images/G/31/img21/shoes/September/SSW/pc-header._CB641971330_.jpg',
-//   ];
+  // STATIC IMAGES
+  // static const List<String> carouselImages = [
+  //   'https://images-eu.ssl-images-amazon.com/images/G/31/img21/Wireless/WLA/TS/D37847648_Accessories_savingdays_Jan22_Cat_PC_1500.jpg',
+  //   'https://images-eu.ssl-images-amazon.com/images/G/31/img2021/Vday/bwl/English.jpg',
+  //   'https://images-eu.ssl-images-amazon.com/images/G/31/img22/Wireless/AdvantagePrime/BAU/14thJan/D37196025_IN_WL_AdvantageJustforPrime_Jan_Mob_ingress-banner_1242x450.jpg',
+  //   'https://images-na.ssl-images-amazon.com/images/G/31/Symbol/2020/00NEW/1242_450Banners/PL31_copy._CB432483346_.jpg',
+  //   'https://images-na.ssl-images-amazon.com/images/G/31/img21/shoes/September/SSW/pc-header._CB641971330_.jpg',
+  // ];
 
 //   static const List<Map<String, String>> categoryImages = [
 //     {

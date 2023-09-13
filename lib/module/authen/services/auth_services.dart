@@ -7,6 +7,7 @@ import 'package:http/http.dart' as http;
 import 'package:pro/common/bottom_bar.dart';
 import 'package:pro/constants/error_handling.dart';
 import 'package:pro/constants/utils.dart';
+import 'package:pro/module/Admin/Admin_screen.dart';
 import 'package:pro/module/home-screens/home.dart';
 // import 'package:pro/models/user.dart';
 import 'package:pro/providers/user_provider.dart';
@@ -22,6 +23,7 @@ class AuthService {
     required String email,
     required String password,
     required String name,
+    required String type,
   }) async {
     try {
       User user = User(
@@ -30,7 +32,7 @@ class AuthService {
           email: email,
           password: password,
           address: "",
-          type: "",
+          type: type,
           token: "");
 
       http.Response res = await http.post(
@@ -59,13 +61,16 @@ class AuthService {
   void signInUser({
     required BuildContext context,
     required String email,
+    required String type,
     required String password,
   }) async {
     try {
+      // final user = Provider.of<UserProvider>(context).user;
       http.Response res = await http.post(
         Uri.parse('$uri/api/signin'),
         body: jsonEncode(
           {
+            'type': type,
             'email': email,
             'password': password,
           },
@@ -74,7 +79,7 @@ class AuthService {
           'Content-Type': 'application/json;charset=UTF-8',
         },
       );
-      print(res.body);
+      // print(res.body);
 
       // ignore: use_build_context_synchronously
       httpErrorHandle(
@@ -85,7 +90,9 @@ class AuthService {
           Provider.of<UserProvider>(context, listen: false).setUser(res.body);
           await prefs.setString('x-auth-token', jsonDecode(res.body)['token']);
           Navigator.pushNamedAndRemoveUntil(
-              context, BottomBar.routeName, (route) => false);
+              context,
+              type != "user" ? BottomBar.routeName : AdminScreen.routeName,
+              (route) => false);
         },
       );
     } catch (e) {
@@ -121,32 +128,6 @@ class AuthService {
         var userProvider = Provider.of<UserProvider>(context, listen: false);
         userProvider.setUser(userRes.body);
       }
-
-      // http.Response res = await http.post(
-      //   Uri.parse('$uri/api/signin'),
-      //   body: jsonEncode(
-      //     {
-      //       'email': email,
-      //       'password': password,
-      //     },
-      //   ),
-      //   headers: <String, String>{
-      //     'Content-Type': 'application/json;charset=UTF-8',
-      //   },
-      // );
-
-      // ignore: use_build_context_synchronously
-      // httpErrorHandle(
-      //   response: res,
-      //   context: context,
-      //   onSuccess: () async {
-      //     SharedPreferences prefs = await SharedPreferences.getInstance();
-      //     Provider.of<UserProvider>(context, listen: false).setUser(res.body);
-      //     await prefs.setString('x-auth-token', jsonDecode(res.body)['token']);
-      //     Navigator.pushNamedAndRemoveUntil(
-      //         context, HomeScreen.routeName, (route) => false);
-      //   },
-      // );
     } catch (e) {
       showSnackBar(context, e.toString());
     }

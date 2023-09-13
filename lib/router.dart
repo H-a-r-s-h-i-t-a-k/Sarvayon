@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pro/common/bottom_bar.dart';
+import 'package:pro/module/Admin/Admin_screen.dart';
 import 'package:pro/module/authen/screens/login.dart';
 import 'package:pro/module/home-screens/home.dart';
 
@@ -31,6 +32,11 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
       return MaterialPageRoute(
         settings: routeSettings,
         builder: (context) => const BottomBar(),
+      );
+    case AdminScreen.routeName:
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (context) => const AdminScreen(),
       );
     default:
       return MaterialPageRoute(
