@@ -19,7 +19,7 @@ app.use(authRouter);
 
 ///init
 const PORT = 3000;
-// console.log("Hello Harshita")
+// console.log("Heshita")
 //creating an API///////////////////////////////////
 // http://<ip addressss>/hello-world
 // app.get('/',(req,res)=>{
