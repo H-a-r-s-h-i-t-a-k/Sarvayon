@@ -16,13 +16,13 @@ import 'package:rive/rive.dart';
 
 import '../../providers/user_provider.dart';
 
-// class HomeScreen extends StatefulWidget {
-//   static const String routeName = "/home";
-//   const HomeScreen({super.key});
+class HomeScreen extends StatefulWidget {
+  static const String routeName = "/home";
+  const HomeScreen({super.key});
 
-//   @override
-//   State<HomeScreen> createState() => _HomeScreenState();
-// }
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
 
 class _HomeScreenState extends State<HomeScreen> {
   @override
