@@ -31,9 +31,9 @@ const PORT = 3000;
     // // res.send("Hello world");
     // res.json({'hi':"HElllo Worlddd"});
     
-    // });
+    });
     
-    //connections
+    connections
 
 
 
