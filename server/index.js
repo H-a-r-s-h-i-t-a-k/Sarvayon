@@ -10,8 +10,8 @@ const app = express();
 const DB ="mongodb+srv://kharshita18092003:D1A9Y7A5@cluster0.ppddjph.mongodb.net/?retryWrites=true&w=majority";
 
 
-//middleware
-//CLIENT ->MIDDLEWARE -> SERVER -> CLIENT
+middleware
+CLIENT ->MIDDLEWARE -> SERVER -> CLIENT
 app.use(express.json());
 app.use(authRouter);
 
