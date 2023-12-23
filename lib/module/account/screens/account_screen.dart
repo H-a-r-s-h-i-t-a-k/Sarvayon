@@ -7,12 +7,12 @@ import 'package:pro/module/account/widgets/button_account.dart';
 import 'package:pro/module/account/widgets/listDetails.dart';
 import 'package:rive/rive.dart';
 
-// class AccountScreen extends StatefulWidget {
-//   const AccountScreen({super.key});
+class AccountScreen extends StatefulWidget {
+  const AccountScreen({super.key});
 
-//   @override
-//   State<AccountScreen> createState() => _AccountScreenState();
-// }
+  @override
+  State<AccountScreen> createState() => _AccountScreenState();
+}
 
 class _AccountScreenState extends State<AccountScreen> {
   @override
