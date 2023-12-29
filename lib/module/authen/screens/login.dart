@@ -5,9 +5,8 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/rendering.dart';
 import 'package:pro/constants/AnimatedBtn.dart';
-// import 'package:rive/rive.dart';
 
-// import 'package:awesome_dialog/awesome_dialog.dart';
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:pro/module/authen/services/auth_services.dart';
 import 'package:rive/rive.dart';
