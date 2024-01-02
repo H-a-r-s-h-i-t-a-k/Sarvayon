@@ -1,12 +1,12 @@
-// ignore_for_file: use_build_context_synchronously
+ignore_for_file: use_build_context_synchronously
 
-// import 'dart:ui';
+import 'dart:ui';
 
-// import 'package:flutter/cupertino.dart';
-// import 'package:flutter/rendering.dart';
-// import 'package:pro/constants/AnimatedBtn.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/rendering.dart';
+import 'package:pro/constants/AnimatedBtn.dart';
 
-// import 'package:awesome_dialog/awesome_dialog.dart';
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:pro/module/authen/services/auth_services.dart';
 import 'package:rive/rive.dart';
