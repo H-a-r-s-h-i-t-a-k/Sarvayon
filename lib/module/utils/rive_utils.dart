@@ -1,4 +1,4 @@
-// import 'package:rive/rive.dart';
+import 'package:rive/rive.dart';
 
 class RiveUtils {
   static StateMachineController getRiveController(Artboard artboard,
