@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-//import 'package:rive/rive.dart';
+import 'package:rive/rive.dart';
 
 class AnimatedBr extends StatelessWidget {
   const AnimatedBr({
