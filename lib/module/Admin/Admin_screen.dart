@@ -3,7 +3,7 @@ import 'package:pro/constants/global_box.dart';
 import 'package:pro/module/Admin/widgets/bottombar.dart';
 import 'package:pro/providers/user_provider.dart';
 import 'package:provider/provider.dart';
-import 'package:rive/rive.dart';
+//import 'package:rive/rive.dart';
 
 class AdminScreen extends StatefulWidget {
   const AdminScreen({super.key});
