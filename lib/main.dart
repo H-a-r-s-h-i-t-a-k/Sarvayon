@@ -10,11 +10,11 @@ import 'package:pro/providers/user_provider.dart';
 import 'package:pro/router.dart';
 import 'package:provider/provider.dart';
 void main() {
-  runApp(MultiProvider(providers: [
-    ChangeNotifierProvider(
-      create: (context) => UserProvider(),
-    ),
-  ], child: const Sarvayon()));
+  // runApp(MultiProvider(providers: [
+  //   ChangeNotifierProvider(
+  //     create: (context) => UserProvider(),
+  //   ),
+  // ], child: const Sarvayon()));
 }
 
 class Sarvayon extends StatefulWidget {
