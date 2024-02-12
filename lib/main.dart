@@ -33,7 +33,7 @@ class _SarvayonState extends State<Sarvayon> {
     authService.getUserData(context);
   }
 
-  // bool changeButton = false;
+  bool changeButton = false;
 
   // This widget is the root of your application.
   @override
