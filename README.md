@@ -1,6 +1,5 @@
 # Sarvayon (Health care app) 
-
-A new Flutter project.
+clone of PHARMACY APP
 
 ## Getting Started
 
