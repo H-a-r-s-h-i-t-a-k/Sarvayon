@@ -1,5 +1,5 @@
 # Sarvayon (Health care app) 
-clone of PHARMACY APP
+Clone of PHARMACY APP
 
 ## Getting Started
 
