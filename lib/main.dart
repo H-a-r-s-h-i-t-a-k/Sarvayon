@@ -45,7 +45,7 @@ class _SarvayonState extends State<Sarvayon> {
       theme: ThemeData(
         scaffoldBackgroundColor: const Color.fromARGB(255, 255, 255, 255),
         // colorScheme: ColorScheme.fromSeed(
-        //               seedColor: const Color.fromARGB(255, 191, 111, 207)),
+        //      /////         seedColor: const Color.fromARGB(255, 191, 111, 207)),
         useMaterial3: true,
         appBarTheme: AppBarTheme(
           elevation: 0,
