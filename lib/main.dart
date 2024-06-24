@@ -9,12 +9,14 @@ import 'package:pro/module/home-screens/home.dart';
 import 'package:pro/providers/user_provider.dart';
 import 'package:pro/router.dart';
 import 'package:provider/provider.dart';
-void main() {
 
-  runApp(MultiProvider(providers: [
+ runApp(MultiProvider(providers: [
     ChangeNotifierProvider(
       create: (context) => UserProvider(),
     ),
+void main() {
+
+  
   ], child: const Sarvayon()));
 }
 
