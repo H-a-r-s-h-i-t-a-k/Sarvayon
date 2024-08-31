@@ -14,9 +14,7 @@ import 'package:provider/provider.dart';
     ChangeNotifierProvider(
       create: (context) => UserProvider(),
     ),
-void main() {
-
-  
+void main() {  
   ], child: const Sarvayon()));
 }
 
