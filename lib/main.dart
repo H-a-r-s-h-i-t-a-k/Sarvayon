@@ -41,7 +41,7 @@ class _SarvayonState extends State<Sarvayon> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Sarvayon   ',
+      title: 'Sarvayon',
       theme: ThemeData(
         scaffoldBackgroundColor: const Color.fromARGB(255, 255, 255, 255),
         // colorScheme: ColorScheme.fromSeed(
